@@ -3,8 +3,13 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :destroy]
 
 	def index
-		if @current_user.present?
-		render json: @current_user, status: 200
+		 headers = request.headers['token'].split(' ').last
+  		 decoded_token = jwt_decode(headers)
+
+		if token_blacklisted?(headers) 
+   		 	render json: { error: "Invalid token" }, status: :unauthorized
+		elsif @current_user.present?
+		 	 render json: @current_user, status: 200
 		else 
 			render json: {error: "not found"}, status: 404
 		end
@@ -25,7 +30,11 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		if @current_user.update(user_params)
+		 headers = request.headers['token'].split(' ').last
+  		 decoded_token = jwt_decode(headers)
+		if token_blacklisted?(headers) 
+   			 	render json: { error: "Invalid token" }, status: :unauthorized
+		elsif @current_user.update(user_params)
 			render json: @current_user
 		else
 			render json: {error: @user.errors.full_messages},
@@ -34,12 +43,18 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		if @user.destroy
+		 headers = request.headers['token'].split(' ').last
+  		 decoded_token = jwt_decode(headers)
+		
+		if token_blacklisted?(headers) 
+   			 	render json: { error: "Invalid token" }, status: :unauthorized
+		elsif @current_user.destroy
 			render json: {message: "user is deleted"}
 		else
-			render json: {error: :not_found}
+			render json: {error: "not_found"}, status: 404
 		end
 	end
+
 
 		private
 	def user_params
