@@ -10,12 +10,12 @@ RSpec.describe "Authentications", type: :request do
       end
      end
 
-   describe "POST /login" do 
-    it "returns error message when book login fails" do 
-       post '/auth/login', params:{email: user.email, password: user.password.to_i}
+    describe "POST /login" do 
+     it "returns error message when book login fails" do 
+       post '/auth/login', params:{email: user.email, password: "wrong_password"}
        expect(response).to have_http_status(404)
-    end
-   end 
+     end
+    end 
 
     describe "POST /login" do 
       it 'returns a JWT token' do
