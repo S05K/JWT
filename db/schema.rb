@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_25_050805) do
+ActiveRecord::Schema.define(version: 2024_01_29_111600) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2024_01_25_050805) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "number"
+    t.string "otp_code"
   end
 
 end

@@ -1,4 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'support/simplecov_setup'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -9,6 +10,7 @@ require 'rspec/rails'
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
+
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
