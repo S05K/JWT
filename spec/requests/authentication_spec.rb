@@ -17,4 +17,12 @@ RSpec.describe "Authentications", type: :request do
     end
    end 
 
+    describe "POST /login" do 
+      it 'returns a JWT token' do
+        post '/auth/login', params: { email: user.email, password: user.password }
+        json_response = JSON.parse(response.body)
+        expect(json_response['token']).to be_present
+      end
+    end
+
 end
