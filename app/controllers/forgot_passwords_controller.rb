@@ -5,6 +5,7 @@ class ForgotPasswordsController < ApplicationController
 	skip_before_action :authenticate_request
 
 	def create
+		# byebug
 		@user = User.find_by(email: params[:email])
 			if @user.present?
 				 @otp_secret = ROTP::Base32.random_base32
@@ -12,9 +13,10 @@ class ForgotPasswordsController < ApplicationController
     			 @otp_code = @otp.now
    				 @user.update(otp_code: @otp_code)
    				 SendOtpMailer.send_otp(@user, @otp_code).deliver_now
-				render json: {message: @user.username}, status: 200
+				render json: {message: "Otp have been sent on your mail"}, status: 200
 			else
-				render json: {error: "user is not present"}
+				render json: {error: "user is not present"}, status: 404
+
 			end
 	end
 
@@ -22,7 +24,7 @@ class ForgotPasswordsController < ApplicationController
 		@user = User.find_by(email: params[:email])
 		 if @user&.otp_code.present? && @user&.otp_code == params[:otp]
 		 	@user.update(password: params[:password])
-		 	render json: {message: "Success"}
+		 	render json: {message: "Success"}, status: 200
 		 else
 		 	render json: {error: "Otp is not valid"}
 		 end
