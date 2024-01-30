@@ -32,16 +32,17 @@ describe "POST /create" do
   end
 end
 
-describe "PUT/ verify_otp" do 
-  it "should verify otp" do 
-      user = create(:user2)
-      allow(User).to receive(:find_by).with(email: user.email).and_return(user)
-      put "/forgot_passwords/verify_otp", params: {email: user.email, password: user.password, otp_code: user.otp_code}
-      expect(response).to have_http_status(200)
+
+describe 'POST #update_password' do
+  let(:user) { FactoryBot.create(:user2) }
+    it 'updates password and returns success message' do
+     allow(User).to receive(:find_by).with(email: user.email).and_return(user)
+     put "/forgot_passwords/verify_otp", params: { password: 'new_password', email: user.email, otp: user.otp_code }
+     user.reload
+     expect(user.reload.password).to eq('new_password')
+     expect(response).to have_http_status(200)
   end
 end
-
-
 
 
 end
