@@ -5,7 +5,6 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    byebug
     headers = request.headers['token'].split(' ').last
     decoded_token = jwt_decode(headers)
 
