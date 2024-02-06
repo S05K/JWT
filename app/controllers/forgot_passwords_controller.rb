@@ -25,7 +25,7 @@ class ForgotPasswordsController < ApplicationController
 		 	@user.update(password: params[:password])
 		 	render json: {message: "Success"}, status: 200
 		 else
-		 	render json: {error: "Otp is not valid"}, status: 400
+		 	render json: {error: "Otp is not valid"}, status: 422
 		 end
 	end
 

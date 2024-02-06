@@ -13,7 +13,9 @@ gem 'activeadmin'
 gem 'simplecov'
 gem 'twilio-ruby'
 gem 'rotp'
-
+gem 'stripe'
+gem 'rack-cors'
+gem 'sidekiq'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -62,3 +64,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'dotenv', groups: [:development, :test]

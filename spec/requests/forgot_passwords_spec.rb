@@ -45,4 +45,15 @@ describe 'POST #update_password' do
 end
 
 
+describe 'POST #update_password' do
+  let(:user) { FactoryBot.create(:user2) }
+  it 'should give an error when opt is not matched' do 
+    allow(User).to receive(:find_by).with(email: user.email).and_return(user)
+    put "/forgot_passwords/verify_otp", params: { password: 'new_password', email: user.email, otp: "user.otp_code" }
+     user.reload
+      expect(response).to have_http_status(422)
+  end
+end
+
+
 end

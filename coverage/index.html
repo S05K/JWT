@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-01-30T12:46:45+05:30">2024-01-30T12:46:45+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-01-30T12:57:46+05:30">2024-01-30T12:57:46+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  37.64%
+  38.2%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.46
+         0.48
        </span>
     </span> hits/line
     )
@@ -44,10 +44,10 @@
 
   <div class="t-line-summary">
     <b>178</b> relevant lines,
-    <span class="green"><b>67</b> lines covered</span> and
-    <span class="red"><b>111</b> lines missed. </span>
+    <span class="green"><b>68</b> lines covered</span> and
+    <span class="red"><b>110</b> lines missed. </span>
     (<span class="red">
-  37.64%
+  38.2%
 </span>
 )
   </div>
@@ -160,12 +160,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#74fda17b0947d0da7865ab4440329f8d7d44ad48" class="src_link" title="app/controllers/forgot_passwords_controller.rb">app/controllers/forgot_passwords_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">94.74 %</td>
-            <td class="cell--number">33</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">32</td>
             <td class="cell--number">19</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">1</td>
-            <td class="cell--number">1.47</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.63</td>
             
           </tr>
         
@@ -341,7 +341,7 @@
             <td class="cell--number">6</td>
             <td class="cell--number">5</td>
             <td class="cell--number">1</td>
-            <td class="cell--number">1.67</td>
+            <td class="cell--number">1.83</td>
             
           </tr>
         
@@ -357,14 +357,14 @@
     <span class="group_name">Controllers</span>
     (<span class="covered_percent">
       <span class="red">
-  22.22%
+  23.15%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.31
+         0.34
        </span>
     </span> hits/line
     )
@@ -378,10 +378,10 @@
 
   <div class="t-line-summary">
     <b>108</b> relevant lines,
-    <span class="green"><b>24</b> lines covered</span> and
-    <span class="red"><b>84</b> lines missed. </span>
+    <span class="green"><b>25</b> lines covered</span> and
+    <span class="red"><b>83</b> lines missed. </span>
     (<span class="red">
-  22.22%
+  23.15%
 </span>
 )
   </div>
@@ -428,12 +428,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#74fda17b0947d0da7865ab4440329f8d7d44ad48" class="src_link" title="app/controllers/forgot_passwords_controller.rb">app/controllers/forgot_passwords_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">94.74 %</td>
-            <td class="cell--number">33</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">32</td>
             <td class="cell--number">19</td>
-            <td class="cell--number">18</td>
-            <td class="cell--number">1</td>
-            <td class="cell--number">1.47</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.63</td>
             
           </tr>
         
@@ -546,7 +546,7 @@
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.79
+         0.82
        </span>
     </span> hits/line
     )
@@ -670,7 +670,7 @@
             <td class="cell--number">6</td>
             <td class="cell--number">5</td>
             <td class="cell--number">1</td>
-            <td class="cell--number">1.67</td>
+            <td class="cell--number">1.83</td>
             
           </tr>
         
@@ -2883,7 +2883,7 @@
     <h3>app/controllers/forgot_passwords_controller.rb</h3>
     <h4>
       <span class="green">
-  94.74%
+  100.0%
 </span>
 
       lines covered
@@ -2893,8 +2893,8 @@
 
     <div class="t-line-summary">
       <b>19</b> relevant lines.
-      <span class="green"><b>18</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>19</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -2982,13 +2982,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="8">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">		# byebug</code>
+            
+
+            <code class="ruby">		@user = User.find_by(email: params[:email])</code>
           </li>
         </div>
       
@@ -2999,23 +2999,12 @@
 
             
 
-            <code class="ruby">		@user = User.find_by(email: params[:email])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="10">
-            <span class="hits">3</span>
-            
-
-            
-
             <code class="ruby">			if @user.present?</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="11">
+          <li class="covered" data-hits="2" data-linenumber="10">
             <span class="hits">2</span>
             
 
@@ -3026,7 +3015,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="12">
+          <li class="covered" data-hits="2" data-linenumber="11">
             <span class="hits">2</span>
             
 
@@ -3037,7 +3026,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="13">
+          <li class="covered" data-hits="2" data-linenumber="12">
             <span class="hits">2</span>
             
 
@@ -3048,7 +3037,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="14">
+          <li class="covered" data-hits="2" data-linenumber="13">
             <span class="hits">2</span>
             
 
@@ -3059,7 +3048,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="15">
+          <li class="covered" data-hits="2" data-linenumber="14">
             <span class="hits">2</span>
             
 
@@ -3070,7 +3059,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="16">
+          <li class="covered" data-hits="2" data-linenumber="15">
             <span class="hits">2</span>
             
 
@@ -3081,7 +3070,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
+          <li class="never" data-hits="" data-linenumber="16">
             
             
 
@@ -3092,7 +3081,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
+          <li class="covered" data-hits="1" data-linenumber="17">
             <span class="hits">1</span>
             
 
@@ -3103,7 +3092,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
+          <li class="never" data-hits="" data-linenumber="18">
             
             
 
@@ -3114,7 +3103,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 
@@ -3125,7 +3114,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
@@ -3136,7 +3125,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="never" data-hits="" data-linenumber="21">
             
             
 
@@ -3147,7 +3136,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="23">
+          <li class="covered" data-hits="1" data-linenumber="22">
             <span class="hits">1</span>
             
 
@@ -3158,13 +3147,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="24">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="23">
+            <span class="hits">2</span>
             
 
             
 
             <code class="ruby">		@user = User.find_by(email: params[:email])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="24">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">		 if @user&amp;.otp_code.present? &amp;&amp; @user&amp;.otp_code == params[:otp]</code>
           </li>
         </div>
       
@@ -3175,7 +3175,7 @@
 
             
 
-            <code class="ruby">		 if @user&amp;.otp_code.present? &amp;&amp; @user&amp;.otp_code == params[:otp]</code>
+            <code class="ruby">		 	@user.update(password: params[:password])</code>
           </li>
         </div>
       
@@ -3186,23 +3186,12 @@
 
             
 
-            <code class="ruby">		 	@user.update(password: params[:password])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">		 	render json: {message: &quot;Success&quot;}, status: 200</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
+          <li class="never" data-hits="" data-linenumber="27">
             
             
 
@@ -3213,18 +3202,18 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="28">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">		 	render json: {error: &quot;Otp is not valid&quot;}, status: 400</code>
+            
+
+            <code class="ruby">		 	render json: {error: &quot;Otp is not valid&quot;}, status: 422</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="30">
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
@@ -3235,7 +3224,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 
@@ -3246,7 +3235,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="31">
             
             
 
@@ -3257,7 +3246,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="32">
             
             
 
@@ -5414,8 +5403,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="6">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="7" data-linenumber="6">
+            <span class="hits">7</span>
             
 
             
