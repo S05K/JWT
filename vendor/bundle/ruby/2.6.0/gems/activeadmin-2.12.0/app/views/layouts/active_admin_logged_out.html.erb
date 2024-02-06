@@ -22,6 +22,7 @@
   <% end %>
 
   <%= favicon_link_tag ActiveAdmin.application.favicon if ActiveAdmin.application.favicon %>
+  <%= stylesheet_link_tag 'active_admin', 'active_admin_custom' %>
 
   <% ActiveAdmin.application.meta_tags_for_logged_out_pages.each do |name, content| %>
     <%= tag(:meta, name: name, content: content) %>

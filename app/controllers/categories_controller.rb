@@ -7,7 +7,6 @@ class CategoriesController < ApplicationController
     end
 
     def create
-      byebug
       @category = Category.new(all_params)
       if @category.save
          # @category.image.attach(params[:image]) if params[:image].present?
