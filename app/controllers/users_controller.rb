@@ -63,8 +63,8 @@ class UsersController < ApplicationController
 	    else
 	      current_user_id = decoded_token['user_id']
 	      @current_user.update(reason: params['reason'], value: true, deleted_at: Time.zone.now)
-	      DeleteUserJob.set(wait: 2.minutes).perform_later(current_user_id)
-	      render json: { message: "User deletion request received. Your account will be deleted after 2 minutes." }
+	      DeleteUserJob.set(wait: 14.days).perform_later(current_user_id)
+	      render json: { message: "User deletion request received. Your account will be deleted after 14 days." }
 	    end
   	end
 
