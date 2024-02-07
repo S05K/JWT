@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_06_102218) do
+ActiveRecord::Schema.define(version: 2024_02_07_114836) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2024_02_06_102218) do
   create_table "posts_tags", id: false, force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "tag_id", null: false
+    t.index ["post_id", "tag_id"], name: "index_posts_tags_on_post_id_and_tag_id"
+    t.index ["tag_id", "post_id"], name: "index_posts_tags_on_tag_id_and_post_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "subcategories", force: :cascade do |t|
@@ -108,6 +117,9 @@ ActiveRecord::Schema.define(version: 2024_02_06_102218) do
     t.integer "number"
     t.string "otp_code"
     t.string "stripe_customer_id"
+    t.string "reason"
+    t.boolean "value", default: false
+    t.datetime "deleted_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

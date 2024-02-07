@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :forgot_passwords
   resources :users
   resources :categories
+    
+   delete '/delete_user', to: 'users#delete_user'
+  post '/cancel_delete_account', to: 'users#cancel_delete_account'
   post '/auth/login', to: 'authentication#login'
   delete 'auth/destroy', to: 'authentication#destroy'
 end

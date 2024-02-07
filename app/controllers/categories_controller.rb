@@ -9,7 +9,6 @@ class CategoriesController < ApplicationController
     def create
       @category = Category.new(all_params)
       if @category.save
-         # @category.image.attach(params[:image]) if params[:image].present?
         render json: {Category: @category}, status: 201
       else
         render json: {error: "Error"}, status: 422

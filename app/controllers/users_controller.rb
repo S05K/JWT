@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 	def index
 		 headers = request.headers['token'].split(' ').last
   		 decoded_token = jwt_decode(headers)
-
 		if token_blacklisted?(headers) 
    		 	render json: { error: "Invalid token" }, status: :unauthorized
 		elsif @current_user.present?
@@ -56,7 +55,35 @@ class UsersController < ApplicationController
 	end
 
 
+	 def delete_user
+	    headers = request.headers['token'].split(' ').last
+	    decoded_token = jwt_decode(headers)
+	    if token_blacklisted?(headers) 
+	      render json: { error: "Invalid token" }, status: :unauthorized
+	    else
+	      current_user_id = decoded_token['user_id']
+	      @current_user.update(reason: params['reason'], value: true, deleted_at: Time.zone.now)
+	      DeleteUserJob.set(wait: 2.minutes).perform_later(current_user_id)
+	      render json: { message: "User deletion request received. Your account will be deleted after 2 minutes." }
+	    end
+  	end
+
+  
+	   def cancel_delete_account
+	    headers = request.headers['token'].split(' ').last
+	    decoded_token = jwt_decode(headers)
+	    if token_blacklisted?(headers) 
+	      render json: { error: "Invalid token" }, status: :unauthorized
+	    else
+	    	 current_user_id = decoded_token['user_id']
+	     	 @current_user.update(value: false)
+	       render json: { message: "Delete account process canceled successfully" }
+	      end
+	  	end
+
+
 		private
+
 	def user_params
 		params.permit(:name, :username, :email, :password, :number)
 	end
