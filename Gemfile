@@ -17,6 +17,10 @@ gem 'stripe'
 gem 'rack-cors'
 gem 'sidekiq'
 gem 'activestorage', '~> 6.0'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

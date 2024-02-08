@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-	skip_before_action :authenticate_request, only: [:create]
+	skip_before_action :authenticate_request, only: [:create, :get_data]
 	before_action :set_user, only: [:show, :destroy]
 
 	def index
 		 headers = request.headers['token'].split(' ').last
-  		 decoded_token = jwt_decode(headers)
+  	 decoded_token = jwt_decode(headers)
 		if token_blacklisted?(headers) 
    		 	render json: { error: "Invalid token" }, status: :unauthorized
 		elsif @current_user.present?
@@ -12,6 +12,12 @@ class UsersController < ApplicationController
 		else 
 			render json: {error: "not found"}, status: 404
 		end
+	end
+
+	def get_data
+	 	res = User.search(query: { match: { name: params[:name] } })
+	 	hits = res.response["hits"]["hits"]
+    render json: hits
 	end
 
 	def show 
@@ -30,7 +36,7 @@ class UsersController < ApplicationController
 
 	def update
 		 headers = request.headers['token'].split(' ').last
-  		 decoded_token = jwt_decode(headers)
+  	 decoded_token = jwt_decode(headers)
 		if token_blacklisted?(headers) 
    			 	render json: { error: "Invalid token" }, status: :unauthorized
 		elsif @current_user.update(user_params)
@@ -43,7 +49,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		 headers = request.headers['token'].split(' ').last
-  		 decoded_token = jwt_decode(headers)
+  	 decoded_token = jwt_decode(headers)
 		
 		if token_blacklisted?(headers) 
    			 	render json: { error: "Invalid token" }, status: :unauthorized
@@ -66,7 +72,7 @@ class UsersController < ApplicationController
 	      DeleteUserJob.set(wait: 14.days).perform_later(current_user_id)
 	      render json: { message: "User deletion request received. Your account will be deleted after 14 days." }
 	    end
-  	end
+  end
 
   
 	   def cancel_delete_account

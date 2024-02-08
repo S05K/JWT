@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :users
   resources :categories
     
-   delete '/delete_user', to: 'users#delete_user'
+  get 'get_data', to: 'users#get_data'
+  delete '/delete_user', to: 'users#delete_user'
   post '/cancel_delete_account', to: 'users#cancel_delete_account'
   post '/auth/login', to: 'authentication#login'
   delete 'auth/destroy', to: 'authentication#destroy'

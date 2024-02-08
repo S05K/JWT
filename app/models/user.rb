@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	
+	include Searchable
 	has_secure_password
 	after_destroy :send_delete_email
 	
