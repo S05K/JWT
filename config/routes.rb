@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :forgot_passwords
   resources :users
   resources :categories
-    
+  resources :subcategories
+  resources :assign_subs
+  resources :subcsriptions
+  get 'get_subs', to: 'assign_subs#get_subs'
   get 'get_data', to: 'users#get_data'
   delete '/delete_user', to: 'users#delete_user'
   post '/cancel_delete_account', to: 'users#cancel_delete_account'

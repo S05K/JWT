@@ -17,7 +17,11 @@ class UsersController < ApplicationController
 	def get_data
 	 	res = User.search(query: { match: { name: params[:name] } })
 	 	hits = res.response["hits"]["hits"]
-    render json: hits
+    if hits.present?
+    	render json: hits, status: 200
+    else
+    	render json: {error: "No data present"}, status: 404
+    end
 	end
 
 	def show 

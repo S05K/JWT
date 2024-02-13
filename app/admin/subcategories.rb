@@ -1,18 +1,33 @@
 ActiveAdmin.register Subcategory do
+  permit_params :name, :category_id, images: []
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  permit_params :name, :category_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:name, :category_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :category_id
+    column "Images" do |subcategory|
+      subcategory.images.each do |image|
+        span do
+          image_tag url_for(image.variant(resize: "200x200"))
+        end
+      end
+    end
+    actions
+  end
+
+  show do
+    attributes_table do
+      row :name
+      row :category_id
+      row "Images" do |subcategory|
+        subcategory.images.each do |image|
+          span do
+            image_tag url_for(image.variant(resize: "300x300"))
+          end
+        end
+      end
+    end
+  end
 end
+

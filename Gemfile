@@ -19,6 +19,7 @@ gem 'sidekiq'
 gem 'activestorage', '~> 6.0'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'active_model_serializers'
 
 
 # Use SCSS for stylesheets
