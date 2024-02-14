@@ -23,7 +23,7 @@ ActiveAdmin.register Subcategory do
       row "Images" do |subcategory|
         subcategory.images.each do |image|
           span do
-            image_tag url_for(image.variant(resize: "300x300"))
+            image_tag url_for(image.variant(resize: "1000x1000"))
           end
         end
       end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'posts/index'
   get 'categories/index'
   get 'categories/create'
   ActiveAdmin.routes(self)
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   resources :subcategories
   resources :assign_subs
   resources :subcsriptions
+  resources :posts
   get 'get_subs', to: 'assign_subs#get_subs'
   get 'get_data', to: 'users#get_data'
   delete '/delete_user', to: 'users#delete_user'

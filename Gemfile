@@ -20,6 +20,7 @@ gem 'activestorage', '~> 6.0'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'active_model_serializers'
+gem 'will_paginate', '~> 3.1.0'
 
 
 # Use SCSS for stylesheets
