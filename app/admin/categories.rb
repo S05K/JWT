@@ -14,6 +14,15 @@ ActiveAdmin.register Category do
     end
     actions
   end
+   # config.paginate = false
+
+ 
+  # controller do
+  #   def scoped_collection
+  #     end_of_association_chain.paginate(page: params[:page], per_page: 10)
+  #   end
+  # end
+
 
   form do |f|
     f.inputs "Category Details" do
