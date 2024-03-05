@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_14_080810) do
+ActiveRecord::Schema.define(version: 2024_03_05_085646) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -61,6 +61,50 @@ ActiveRecord::Schema.define(version: 2024_02_14_080810) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subcsription_id"], name: "index_assign_subs_on_subcsription_id"
     t.index ["user_id"], name: "index_assign_subs_on_user_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "active"
+  end
+
+  create_table "bikes", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "name"
+    t.integer "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "activate"
+    t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "buses", force: :cascade do |t|
+    t.integer "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.json "seats"
+    t.datetime "arrival"
+    t.datetime "departure"
+    t.datetime "reaching_time"
+    t.string "from"
+    t.string "to"
+    t.integer "price"
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -144,10 +188,22 @@ ActiveRecord::Schema.define(version: 2024_02_14_080810) do
     t.string "reason"
     t.boolean "value", default: false
     t.datetime "deleted_at"
+    t.boolean "active"
+    t.integer "bus_id"
+    t.text "selected_seats"
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "type"
+    t.string "color"
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "assign_subs", "subcsriptions"
   add_foreign_key "assign_subs", "users"
+  add_foreign_key "books", "authors"
   add_foreign_key "subcategories", "categories"
 end

@@ -16,14 +16,17 @@ class CategoriesController < ApplicationController
 
   def index 
      # @categories = Category.paginate(page: params[:page], per_page: params[:per_page])
+     @categories = Category.all 
      render json: @categories, each_serializer: CategorySerializer 
+     
+     # render json: {cat: @categories}
   end
 
 
     def create
       @category = Category.new(all_params)
       if @category.save
-        render json: @category, each_serializer: CategorySerializer
+        render json: @category #, each_serializer: CategorySerializer
       end
     end
 

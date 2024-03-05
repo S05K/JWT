@@ -21,6 +21,14 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'active_model_serializers'
 # gem 'will_paginate', '~> 3.1.0'
+# gem 'rails_admin', '~> 0.8.1.beta'
+gem 'rails_admin', '>= 1.4.0', '< 3.0'
+gem 'rqrcode'
+
+# gem 'rails_admin', '~> 3.1.1' # Use the version you want here
+
+
+
 
 
 # Use SCSS for stylesheets

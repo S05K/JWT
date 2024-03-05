@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 	def index
 		 headers = request.headers['token'].split(' ').last
-  	 decoded_token = jwt_decode(headers)
+  	 	decoded_token = jwt_decode(headers)
 		if token_blacklisted?(headers) 
    		 	render json: { error: "Invalid token" }, status: :unauthorized
 		elsif @current_user.present?
