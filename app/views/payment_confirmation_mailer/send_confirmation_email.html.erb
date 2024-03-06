@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Payment Confirmation</h1>
+  <p>Dear <%= @current_user.name %>,</p>
+  
+  <p>Your payment for bus number <%= @bus_number %> from <%= @from %> to <%= @to %> (Arrival: <%= @arrival %>) has been confirmed.</p>
+  <p>You have booked the following seats: <%= @selected_seats.join(', ') %> .</p>
+  
+  <p>Thank you for booking with us!</p>
+</body>
+</html>
+

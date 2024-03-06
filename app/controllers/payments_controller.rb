@@ -69,6 +69,10 @@ class PaymentsController < ApplicationController
     bus = Bus.find(params[:id])
   bus.disable_paid_seats(params[:seats_ids])
 
+   # PaymentConfirmationMailer.send_confirmation_email(@current_user,bus.number, bus.from, bus.to, bus.arrival, params[:id], params[:seats_ids]).deliver_now
+PaymentConfirmationMailer.send_confirmation_email(@current_user, bus.number, bus.from, bus.to, bus.arrival, params[:id], params[:seats_ids]).deliver_now
+
+
   render json: {url: payment_intent.url}
   
 end
