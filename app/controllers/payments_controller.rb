@@ -63,10 +63,11 @@ class PaymentsController < ApplicationController
   cancel_url: 'http://localhost:4200/cancel', # Redirect URL if payment is canceled
 )
 
-  # byebug
+ 
   @current_user.update(bus_id: params[:id], selected_seats: params[:seats_ids])
 
-  
+    bus = Bus.find(params[:id])
+  bus.disable_paid_seats(params[:seats_ids])
 
   render json: {url: payment_intent.url}
   
