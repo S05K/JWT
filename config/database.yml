@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: Associations_development
+  database: jwt
   host: localhost
   username: postgres
   password: password
@@ -61,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Associations_test
+  database: jwt
   host: localhost
   username: postgres
   password: password
@@ -88,7 +88,7 @@ test:
 #
 production:
   <<: *default
-  database: Associations_production
+  database: jwt
   url: <%= ENV['DATABASE_URL']%>
   # host: localhost
   # username: Associations
