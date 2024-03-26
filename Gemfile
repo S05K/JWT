@@ -9,7 +9,7 @@ gem 'rails', '~> 6.0.6', '>= 6.0.6.1'
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
-gem 'activeadmin'
+# gem 'activeadmin'
 gem 'simplecov'
 gem 'twilio-ruby'
 gem 'rotp'
@@ -22,7 +22,9 @@ gem 'elasticsearch-rails'
 gem 'active_model_serializers'
 # gem 'will_paginate', '~> 3.1.0'
 # gem 'rails_admin', '~> 0.8.1.beta'
-gem 'rails_admin', '>= 1.4.0', '< 3.0'
+gem 'rails_admin', '~> 2.0.0'
+
+# gem 'rails_admin', '>= 1.4.0', '< 3.0'
 gem 'rqrcode'
 
 # gem 'rails_admin', '~> 3.1.1' # Use the version you want here
@@ -32,7 +34,9 @@ gem 'rqrcode'
 
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
+# gem 'sass-rails', '>= 6'
+gem 'sass-rails', '~> 5.1.0'
+
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -79,4 +83,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'dotenv', groups: [:development, :test]
+# gem 'dotenv', groups: [:development, :test]
