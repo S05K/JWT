@@ -1,22 +1,17 @@
-databases:
-  - name: JWT
-    databaseName: jwt
-    user: jwt
-    plan: free
-
+# Exported from Render on 2024-03-26T13:02:07Z
 services:
-  - type: web
-    name: JWT
-    runtime: ruby
-    plan: free
-    buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec rails server"
-    envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: jwt
-          property: connectionString
-      - key: RAILS_MASTER_KEY
-        sync: false
-      - key: WEB_CONCURRENCY
-        value: 2 
+- type: web
+  name: JWT-BusManager
+  runtime: node
+  repo: https://github.com/S05K/JWT
+  branch: jwt_branch
+  plan: free
+  envVars:
+  - key: RAILS_MASTER_KEY
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  region: oregon
+  buildCommand: ./bin/render-build.sh
+  startCommand: bundle exec rails s
+version: "1"
